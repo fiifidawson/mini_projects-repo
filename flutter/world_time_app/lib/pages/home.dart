@@ -37,8 +37,8 @@ class _HomeState extends State<Home> {
           child: SafeArea(
             child: Column(children: <Widget>[
               TextButton.icon(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/location');
+                onPressed: () async {
+                  dynamic result = await Navigator.pushNamed(context, '/location');
                 },
                 icon:  Icon(
                   Icons.edit_location,
