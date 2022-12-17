@@ -17,7 +17,10 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     //data = ModalRoute.of(context)!.settings.arguments as Map;
     data = ModalRoute.of(context)?.settings.arguments as Map;
-    //data = jsonDecode(jsonEncode(parameters));
+    print(data);
+
+    //set background
+    String bgImage = data['isDaytime'] ? 'day.jpg' : 'night.jpg';
 
     return Scaffold(
       body: Padding(
