@@ -20,13 +20,16 @@ class _HomeState extends State<Home> {
     print(data);
 
     //set background
-    String bgImage = data['isDaytime'] ? 'assets/day1.jpg' : 'assets/night.jpg';
+    String bgImage = data['isDaytime'] ? 'day1.jpg' : 'night.jpg';
+    Color? bgColor = data['isDaytime'] ? const Color.fromARGB(255, 17, 51, 110) : Colors.black12;
 
     return Scaffold(
-      body: Container(
+    backgroundColor: bgColor,
+      body: SafeArea(
+            child: Container(
         decoration: BoxDecoration(
             image: DecorationImage(
-          image: AssetImage('assets/$bgImage'),
+            image: AssetImage('assets/$bgImage'),
           fit: BoxFit.cover,
         )),
         child: Padding(
@@ -37,13 +40,13 @@ class _HomeState extends State<Home> {
                 onPressed: () {
                   Navigator.pushNamed(context, '/location');
                 },
-                icon: const Icon(
+                icon:  Icon(
                   Icons.edit_location,
-                  color: Colors.white,
+                  color: Colors.grey[300],
                 ),
-                label: const Text(
+                label:  Text(
                   'Edit Location',
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.grey[300]),
                 ),
               ),
               const SizedBox(height: 20.0),
@@ -52,7 +55,10 @@ class _HomeState extends State<Home> {
                 children: <Widget>[
                   Text(
                     data['location'],
-                    style: const TextStyle(color: Colors.white ,fontSize: 28.0, letterSpacing: 2.0),
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 28.0,
+                        letterSpacing: 2.0),
                   )
                 ],
               ),
@@ -65,6 +71,7 @@ class _HomeState extends State<Home> {
           ),
         ),
       ),
+    )
     );
   }
 }
