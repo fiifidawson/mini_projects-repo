@@ -16,12 +16,16 @@ class QuoteCard extends StatelessWidget {
             padding: const EdgeInsets.all(12.0),
             child: Column(children: <Widget>[
               Text(quote.text,
-                  style: TextStyle(fontSize: 18.0, color: Colors.grey[500])),
+                  style: TextStyle(fontSize: 18.0, color: Colors.grey[500])
+                  ),
               const SizedBox(height: 8.0),
               TextButton.icon(
                   onPressed: delete,
                   label: const Text('Delete Quote'),
                   icon: const Icon(Icons.delete))
-            ])));
+            ]
+            )
+          )
+        );
   }
 }
